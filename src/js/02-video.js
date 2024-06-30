@@ -15,21 +15,23 @@ const iframe = document.querySelector('iframe');
 
 const STORAGE_KEY = 'videoplayer-current-time';
 
-// Funcție pentru a salva timpul de redare în local storage
+
 const saveCurrentTime = throttle((data) => {
   localStorage.setItem(STORAGE_KEY, data.seconds);
 }, 1000);
 
-// Ascultă evenimentul de timeupdate și salvează timpul curent
+
 player.on('timeupdate', saveCurrentTime);
 
-// La reîncărcarea paginii, setează timpul curent salvat
+
 const savedTime = localStorage.getItem(STORAGE_KEY);
 if (savedTime) {
   player.setCurrentTime(savedTime).catch((error) => {
     console.error('Error setting current time:', error);
   });
 }
+
+// use F key to get in and out of fullscreen
 
 function enterFullscreen(element) {
   if (element.requestFullscreen) {
