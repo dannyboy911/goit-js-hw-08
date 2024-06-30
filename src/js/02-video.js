@@ -34,11 +34,11 @@ if (savedTime) {
 function enterFullscreen(element) {
   if (element.requestFullscreen) {
     element.requestFullscreen();
-  } else if (element.mozRequestFullScreen) { // Firefox
+  } else if (element.mozRequestFullScreen) { 
     element.mozRequestFullScreen();
-  } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+  } else if (element.webkitRequestFullscreen) { 
     element.webkitRequestFullscreen();
-  } else if (element.msRequestFullscreen) { // IE/Edge
+  } else if (element.msRequestFullscreen) { 
     element.msRequestFullscreen();
   }
 }
@@ -46,18 +46,18 @@ function enterFullscreen(element) {
 function exitFullscreen() {
   if (document.exitFullscreen) {
     document.exitFullscreen();
-  } else if (document.mozCancelFullScreen) { // Firefox
+  } else if (document.mozCancelFullScreen) { 
     document.mozCancelFullScreen();
-  } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+  } else if (document.webkitExitFullscreen) {
     document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) { // IE/Edge
+  } else if (document.msExitFullscreen) { 
     document.msExitFullscreen();
   }
 }
 
-// Funcție pentru a comuta modul fullscreen
+
 function toggleFullscreen() {
-  if (!document.fullscreenElement && // alternative standard method
+  if (!document.fullscreenElement && 
       !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
     enterFullscreen(iframe);
   } else {
@@ -65,7 +65,6 @@ function toggleFullscreen() {
   }
 }
 
-// Ascultă evenimentul de apăsare a tastei 'F'
 document.addEventListener('keydown', (event) => {
   if (event.key === 'f' || event.key === 'F') {
     toggleFullscreen();
